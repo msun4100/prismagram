@@ -3,7 +3,7 @@ import { prisma } from "../../../generated/prisma-client";
 export default {
   User: {
     fullName: (parent) => {
-      // parent는 위에 있는 resolver, return { user: userProfile, posts} 와 같음
+      // parent는 위에 있는 resolver, me.js라면 return { user: userProfile, posts} 와 같음
       // console.log(parent);
       return `${parent.firstName} ${parent.lastName}`;
     },
@@ -23,26 +23,6 @@ export default {
       const { user } = request;
       const { id: parentId } = parent;
       return user.id === parentId;
-    },
-  },
-  Post: {
-    isLiked: async (parent, _, { request }) => {
-      const { user } = request;
-      const { id } = parent;
-      return prisma.$exists.like({
-        AND: [
-          {
-            user: {
-              id: user.id,
-            },
-          },
-          {
-            post: {
-              id,
-            },
-          },
-        ],
-      });
     },
   },
 };
