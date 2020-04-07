@@ -10,7 +10,7 @@ type User {
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
-  romms: [Room!]!
+  rooms: [Room!]!
 }
 
 type Post {

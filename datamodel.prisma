@@ -10,8 +10,8 @@ type User {
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
-  romms: [Room!]!
-  loginSecret: String!
+  rooms: [Room!]!
+  loginSecret: String
 }
 
 type Post {
