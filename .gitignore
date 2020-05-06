@@ -106,3 +106,6 @@ dist
 # Prisma Setup
 generated
 prisma.yml
+
+# File Upload path
+uploads/
