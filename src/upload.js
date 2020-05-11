@@ -13,6 +13,7 @@ const upload = multer({
   storage: multerS3({
     s3,
     acl: "public-read",
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     bucket: "prismagram-msun4100",
     metadata: function(req, file, cb) {
       cb(null, { fieldName: file.fieldname });
